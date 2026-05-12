@@ -22,7 +22,7 @@ import (
 	"github.com/stretchr/testify/mock"
 	"github.com/stretchr/testify/require"
 
-	dockerContainer "github.com/docker/docker/api/types/container"
+	dockerContainer "github.com/moby/moby/api/types/container"
 
 	"github.com/nicholas-fedor/watchtower/internal/actions"
 	"github.com/nicholas-fedor/watchtower/internal/api"
@@ -1217,7 +1217,7 @@ func TestValidateRollingRestartDependenciesAcceptsCancelableContext(t *testing.T
 		mockClient.AssertExpectations(t)
 	})
 
- 	// Test with timeout context
+	// Test with timeout context
 	t.Run("timeout context is propagated to client", func(t *testing.T) {
 		ctx, cancel := context.WithTimeout(context.Background(), time.Nanosecond)
 		defer cancel()
